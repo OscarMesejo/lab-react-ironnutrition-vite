@@ -7,18 +7,14 @@ import FoodBox from "./components/FoodBox";
 function App() {
 
   const [foodsList, setFoodsList] = useState(foodsJson);
-  
+
   return (
     <div className="App">
       <h1>LAB | React IronNutrition</h1>
 
-      <FoodBox food={ {
-  name: "Orange",
-  calories: 85,
-  image: "https://i.imgur.com/abKGOcv.jpg",
-  servings: 1
-} } 
-/>
+      {foodsList.map((food)=><FoodBox key= {food._id} food ={food} />)}
+
+      
     </div>
   );
 }
