@@ -1,11 +1,12 @@
 // Your code here
 function FoodBox(props) {
-    const { food } = props;
+    const { food, handleDelete } = props;
+    console.log(props);
     return (
         <div>
             <p><b>{food.name}</b></p>
 
-            <img width = "300px" src={food.image} />
+            <img width="200px" src={food.image} />
 
             <p>Calories: {food.calories}</p>
             <p>Servings {food.servings}</p>
@@ -14,7 +15,7 @@ function FoodBox(props) {
                 <b>Total Calories: {food.servings} * {food.calories} </b> kcal
             </p>
 
-            <button>Delete</button>
+            <button onClick={() => (handleDelete(food.id))}>Delete</button>
         </div>
     )
 }
