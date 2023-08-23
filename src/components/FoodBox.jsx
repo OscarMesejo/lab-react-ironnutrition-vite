@@ -1,4 +1,5 @@
 // Your code here
+
 function FoodBox(props) {
     const { food, handleDelete } = props;
     console.log(props);

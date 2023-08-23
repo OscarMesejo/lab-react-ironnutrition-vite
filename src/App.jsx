@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import foodsJson from "./foods.json";
 import FoodBox from "./components/FoodBox";
+import AddFoodForm from "./components/AddFoodForm";
 
 
 function App() {
@@ -10,18 +11,31 @@ function App() {
 
   function handleDelete(foodsJsonId) {
     console.log(foodsJsonId);
-    const newArray = foodsJson.filter((foodsJson) => {
+    const newArray = foods.filter((foodsJson) => {
       return foodsJson.id !== foodsJsonId;
     })
     setFoodsList(newArray)
     console.log(newArray)
   }
 
+  function createFood(foodIWantToAdd){
+    const newArray = [foodIWantToAdd, ...foodsJson]
+    const updatedFoodList = [foodIWantToAdd, ...foodsJson]
+
+    setFoodsJson(newArray);
+    setFoods(updatedFoodList);
+  }
+
   return (
     <div className="App">
-      <h1>LAB | React IronNutrition</h1>
+
+    <AddFoodForm />
+
+      <h1>Food List</h1>
 
       {foodsList.map((food) => <FoodBox key={food.id} handleDelete={handleDelete} food={food} />)}
+
+      
 
 
     </div>
